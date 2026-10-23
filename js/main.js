@@ -7,9 +7,11 @@
 // ==========================================================================
 // 1. DOM Element Selectors
 // ==========================================================================
+const header = document.getElementById('header');
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('primary-navigation');
 const navLinks = document.querySelectorAll('.navbar__link, .navbar__cta');
+const sections = document.querySelectorAll('section[id]');
 
 // ==========================================================================
 // 2. Navigation State Functions
@@ -90,4 +92,54 @@ window.addEventListener('resize', () => {
     closeMenu();
   }
 });
+
+// ==========================================================================
+// 4. Scroll Effects: Sticky Shadow & Active Link Highlight (ScrollSpy)
+// ==========================================================================
+
+/**
+ * Toggles a subtle elevation shadow and backdrop blur when the page is scrolled down.
+ */
+function handleNavbarShadow() {
+  if (!header) return;
+
+  if (window.scrollY > 20) {
+    header.classList.add('header--scrolled');
+  } else {
+    header.classList.remove('header--scrolled');
+  }
+}
+
+/**
+ * Highlights the current active navigation link based on which section is in the viewport.
+ */
+function highlightActiveSection() {
+  const scrollY = window.pageYOffset || window.scrollY;
+
+  sections.forEach((section) => {
+    const sectionHeight = section.offsetHeight;
+    // Offset accounts for fixed navbar height so link activates right as section enters view
+    const sectionTop = section.offsetTop - 100;
+    const sectionId = section.getAttribute('id');
+    const matchingLink = document.querySelector(`.navbar__list a[href="#${sectionId}"]`);
+
+    if (matchingLink) {
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        matchingLink.classList.add('active-link');
+      } else {
+        matchingLink.classList.remove('active-link');
+      }
+    }
+  });
+}
+
+// Attach scroll handler
+window.addEventListener('scroll', () => {
+  handleNavbarShadow();
+  highlightActiveSection();
+});
+
+// Run once on initial load in case user refreshed mid-page
+handleNavbarShadow();
+highlightActiveSection();
 

@@ -76,7 +76,15 @@ button:focus-visible {
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
-  transition: box-shadow var(--transition-normal), background-color var(--transition-normal);
+  transition: box-shadow var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+/* Sticky Navbar Scrolled State (Subtle elevation shadow & backdrop blur) */
+.header.header--scrolled {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom-color: rgba(226, 232, 240, 0.7);
 }
 
 .navbar {

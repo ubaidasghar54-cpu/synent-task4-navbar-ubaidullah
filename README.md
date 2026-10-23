@@ -23,9 +23,9 @@ The project demonstrates a production-grade front-end workflow: desktop Flexbox 
 
 ## 📸 Screenshots
 
-| Desktop View (≥ 769px) | Mobile Drawer View (≤ 768px) |
-| :---: | :---: |
-| ![Desktop View](https://via.placeholder.com/600x340?text=LumiLayer+Desktop+Navbar) | ![Mobile View](https://via.placeholder.com/300x530?text=LumiLayer+Mobile+Menu) |
+<img width="1600" height="782" alt="image" src="https://github.com/user-attachments/assets/3af679ec-23ee-45f5-98f3-a35a6277fa29" />
+
+<img width="620" height="773" alt="image" src="https://github.com/user-attachments/assets/a0509903-296a-41fd-8fc3-2721bbbc0468" />
 
 ---
 

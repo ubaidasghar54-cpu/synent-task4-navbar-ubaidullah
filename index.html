@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LumiLayer | Responsive Navigation Bar</title>
+  
+  <!-- Google Font: Poppins (Regular 400, Medium 500, Semi-Bold 600, Bold 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Vanilla JavaScript (defer ensures HTML is parsed before script runs) -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Header & Navigation Bar -->
+  <header class="header" id="header">
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="navbar__container">
+        <!-- Brand Logo / Wordmark -->
+        <a href="#home" class="navbar__logo">Lumi<span>Layer</span></a>
+
+        <!-- Mobile Hamburger Toggle Button (Accessible) -->
+        <button 
+          class="navbar__toggle" 
+          id="nav-toggle" 
+          type="button"
+          aria-label="Toggle navigation menu" 
+          aria-expanded="false" 
+          aria-controls="primary-navigation"
+        >
+          <span class="navbar__hamburger" aria-hidden="true">
+            <span class="navbar__bar"></span>
+            <span class="navbar__bar"></span>
+            <span class="navbar__bar"></span>
+          </span>
+        </button>
+
+        <!-- Navigation Menu Container -->
+        <div class="navbar__menu" id="primary-navigation">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a href="#home" class="navbar__link active-link">Home</a>
+            </li>
+            <li class="navbar__item">
+              <a href="#about" class="navbar__link">About</a>
+            </li>
+            <li class="navbar__item">
+              <a href="#services" class="navbar__link">Services</a>
+            </li>
+            <li class="navbar__item">
+              <a href="#portfolio" class="navbar__link">Portfolio</a>
+            </li>
+            <li class="navbar__item">
+              <a href="#contact" class="navbar__link">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Call to Action Button inside Navigation -->
+          <a href="#contact" class="navbar__cta">Get Started</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Demo Page Main Content (Tall sections for scroll testing) -->
+  <main id="main">
+    <!-- Home Section -->
+    <section class="section section--home" id="home">
+      <div class="section__container">
+        <span class="section__badge">Next-Gen Interface</span>
+        <h1 class="section__title">Welcome to <span class="highlight">LumiLayer</span></h1>
+        <p class="section__description">
+          A sleek, high-performance responsive web experience built with semantic HTML5, modern CSS flexbox, and accessible vanilla JavaScript.
+        </p>
+        <div class="section__actions">
+          <a href="#about" class="btn btn--primary">Learn More</a>
+          <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section--about" id="about">
+      <div class="section__container">
+        <span class="section__badge">Who We Are</span>
+        <h2 class="section__title">About LumiLayer</h2>
+        <p class="section__description">
+          LumiLayer crafts seamless digital interfaces with clean architecture, accessible components, and smooth interactions designed to deliver consistent experiences across mobile, tablet, and desktop devices.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section section--services" id="services">
+      <div class="section__container">
+        <span class="section__badge">What We Do</span>
+        <h2 class="section__title">Our Core Services</h2>
+        <p class="section__description">
+          From responsive front-end engineering to web accessibility audits, we specialize in high-fidelity web experiences that prioritize speed, clarity, and visual delight.
+        </p>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section section--portfolio" id="portfolio">
+      <div class="section__container">
+        <span class="section__badge">Our Work</span>
+        <h2 class="section__title">Featured Portfolio</h2>
+        <p class="section__description">
+          Explore our collection of modern web components and interactive layouts engineered with production standards, responsive breakpoints, and zero bloat.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section--contact" id="contact">
+      <div class="section__container">
+        <span class="section__badge">Connect</span>
+        <h2 class="section__title">Contact Us</h2>
+        <p class="section__description">
+          Ready to elevate your digital presence? Reach out today to collaborate on modern web projects built with precision and care.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 LumiLayer. Built for Synent Technologies Web Development Internship.</p>
+  </footer>
+
+</body>
+</html>

@@ -53,6 +53,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-body);
   line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -453,5 +454,46 @@ button:focus-visible {
     font-size: 1rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   7. Narrow Screen Adjustments (<= 360px Phones)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  .navbar__container {
+    padding: 0 1rem;
+  }
+
+  .navbar__logo {
+    font-size: 1.35rem;
+  }
+
+  .section {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Accessibility: Prefers Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 
 

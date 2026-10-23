@@ -1,0 +1,319 @@
+/* ==========================================================================
+   LumiLayer - Modern Responsive Navigation Bar & Demo Page
+   Designed for Synent Technologies Web Development Internship
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (Theme Variables)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Color Palette */
+  --color-primary: #0F172A;       /* Deep slate navy for main headings and strong text */
+  --color-accent: #3B82F6;        /* Vibrant brand blue for buttons, links, accents */
+  --color-accent-hover: #2563EB;  /* Darker blue for interactive hover states */
+  --color-highlight: #FBBF24;     /* Warm amber for badges & visual pop */
+  --color-bg: #F8FAFC;            /* Clean off-white background */
+  --color-surface: #FFFFFF;       /* Pure white for navbar and cards */
+  --color-text-body: #334155;     /* Balanced neutral for readable body copy */
+  --color-text-muted: #64748B;    /* Medium grey for secondary labels and links */
+  --color-border: #E2E8F0;        /* Subtle border lines */
+  --color-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08); /* Soft elevation */
+
+  /* Typography & Layout Metrics */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --nav-height: 72px;
+  --container-max-width: 1200px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Modern CSS Reset & Base Rules
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  /* Smooth scrolling between anchor links */
+  scroll-behavior: smooth;
+  /* Prevent content jumping beneath fixed navbar when navigating */
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Navigation (Desktop Layout)
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1000;
+  transition: box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.navbar {
+  height: 100%;
+  width: 100%;
+}
+
+.navbar__container {
+  max-width: var(--container-max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo / Wordmark */
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__logo:hover {
+  opacity: 0.9;
+}
+
+.navbar__logo span {
+  color: var(--color-accent);
+}
+
+/* Navigation Menu Container (Desktop) */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.navbar__link {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 0.35rem 0;
+  transition: color var(--transition-fast);
+}
+
+/* Hover and active states */
+.navbar__link:hover {
+  color: var(--color-primary);
+}
+
+.navbar__link.active-link {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Animated underline indicator */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  transition: width var(--transition-normal);
+}
+
+.navbar__link:hover::after,
+.navbar__link.active-link::after {
+  width: 100%;
+}
+
+/* Call to Action Button */
+.navbar__cta {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px; /* Pill shape */
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.navbar__cta:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+}
+
+.navbar__cta:active {
+  transform: translateY(0);
+}
+
+/* Hamburger button is hidden by default on desktop */
+.navbar__toggle {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. Demo Page Sections Styling (For testing scrolling & sticky nav)
+   -------------------------------------------------------------------------- */
+.section {
+  min-height: 85vh;
+  padding: 6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Alternating Section Backgrounds */
+.section--home {
+  background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%);
+  min-height: 92vh;
+}
+
+.section--about {
+  background-color: var(--color-surface);
+}
+
+.section--services {
+  background-color: var(--color-bg);
+}
+
+.section--portfolio {
+  background-color: var(--color-surface);
+}
+
+.section--contact {
+  background: linear-gradient(180deg, var(--color-bg) 0%, #EFF6FF 100%);
+}
+
+/* Badges, Headings, and Descriptions */
+.section__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.section__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.section__title .highlight {
+  color: var(--color-accent);
+}
+
+.section__description {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+/* Action Buttons inside Sections */
+.section__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn--secondary:hover {
+  background-color: rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-primary);
+  color: #94A3B8;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  font-size: 0.875rem;
+}

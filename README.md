@@ -129,6 +129,7 @@ The repository follows standard Conventional Commits:
 6. `feat: add sticky navbar shadow on scroll and dynamic active section link highlight`
 7. `style: add 360px viewport optimization and prefers-reduced-motion accessibility support`
 8. `docs: add comprehensive project documentation in README.md`
+9. `fix: enhance scrollspy at page bottom, prevent body scroll when menu open, and style mobile active link`
 
 ---
 
@@ -136,3 +137,4 @@ The repository follows standard Conventional Commits:
 
 Created by **Ubaidullah** as an educational internship project for the **Synent Technologies Web Development Internship**.
 All code is original and written from scratch without third-party frameworks.
+

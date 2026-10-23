@@ -24,6 +24,7 @@ function openMenu() {
   navMenu.classList.add('is-active');
   navToggle.classList.add('is-active');
   navToggle.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('no-scroll');
 }
 
 /**
@@ -33,6 +34,7 @@ function closeMenu() {
   navMenu.classList.remove('is-active');
   navToggle.classList.remove('is-active');
   navToggle.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('no-scroll');
 }
 
 /**
@@ -115,6 +117,20 @@ function handleNavbarShadow() {
  */
 function highlightActiveSection() {
   const scrollY = window.pageYOffset || window.scrollY;
+  // Check if user has scrolled near the bottom of the document
+  const isNearBottom = (window.innerHeight + scrollY) >= document.documentElement.scrollHeight - 50;
+
+  if (isNearBottom && sections.length > 0) {
+    const lastSectionId = sections[sections.length - 1].getAttribute('id');
+    sections.forEach((section) => {
+      const sectionId = section.getAttribute('id');
+      const link = document.querySelector(`.navbar__list a[href="#${sectionId}"]`);
+      if (link) {
+        link.classList.toggle('active-link', sectionId === lastSectionId);
+      }
+    });
+    return;
+  }
 
   sections.forEach((section) => {
     const sectionHeight = section.offsetHeight;

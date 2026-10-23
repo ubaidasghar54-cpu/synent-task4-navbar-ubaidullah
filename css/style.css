@@ -58,6 +58,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent background scrolling when mobile menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Remove default mobile tap highlight for a cleaner native feel */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Accessible focus ring for keyboard navigation */
 a:focus-visible,
 button:focus-visible {
@@ -436,6 +447,14 @@ button:focus-visible {
 
   .navbar__link:hover {
     background-color: rgba(59, 130, 246, 0.05);
+    padding-left: 0.75rem;
+  }
+
+  /* Distinct visual indicator for the active link on mobile */
+  .navbar__link.active-link {
+    color: var(--color-accent);
+    background-color: rgba(59, 130, 246, 0.08);
+    font-weight: 600;
     padding-left: 0.75rem;
   }
 

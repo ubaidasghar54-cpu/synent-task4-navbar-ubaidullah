@@ -9,6 +9,7 @@
 // ==========================================================================
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('primary-navigation');
+const navLinks = document.querySelectorAll('.navbar__link, .navbar__cta');
 
 // ==========================================================================
 // 2. Navigation State Functions
@@ -53,3 +54,40 @@ function toggleMenu() {
 if (navToggle && navMenu) {
   navToggle.addEventListener('click', toggleMenu);
 }
+
+// Close mobile menu when any navigation link or CTA is clicked
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    if (navToggle && navToggle.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+    }
+  });
+});
+
+// Close menu when clicking anywhere outside of the navbar menu and toggle
+document.addEventListener('click', (event) => {
+  if (!navToggle || !navMenu) return;
+
+  const isMenuOpen = navToggle.getAttribute('aria-expanded') === 'true';
+  const isClickInside = navMenu.contains(event.target) || navToggle.contains(event.target);
+
+  if (isMenuOpen && !isClickInside) {
+    closeMenu();
+  }
+});
+
+// Close menu on Escape key press (keyboard accessibility)
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navToggle && navToggle.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+    navToggle.focus(); // Return focus to the toggle button
+  }
+});
+
+// Reset menu if the browser window is resized wider than the mobile breakpoint
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768 && navToggle && navToggle.getAttribute('aria-expanded') === 'true') {
+    closeMenu();
+  }
+});
+
